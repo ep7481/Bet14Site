@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Website</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1{
+            text-align: center;
+        }
+
+        .buttons{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .buttons button{
+            width: 200px;
+            height: 50px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bet14</h1>
+
+    <div class="buttons">
+        <button onclick="button1Clicked()">Button 1</button>
+        <button onclick="button2Clicked()">Button 2</button>
+    </div>
+
+    <script>
+        function button1Clicked() {
+            alert("Button 1 clicked!");
+            // Perform any other actions or redirect as needed
+        }
+
+        function button2Clicked() {
+            alert("Button 2 clicked!");
+            // Perform any other actions or redirect as needed
+        }
+    </script>
+</body>
+</html>
