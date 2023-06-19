@@ -3,7 +3,7 @@
 <head>
     <title>My Website</title>
     <style>
-        body{
+        body {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -12,18 +12,18 @@
             margin: 0;
         }
 
-        h1{
+        h1 {
             text-align: center;
         }
 
-        .buttons{
+        .buttons {
             display: flex;
             flex-direction: column;
             align-items: center;
             margin-top: 20px;
         }
 
-        .buttons button{
+        .buttons button {
             width: 200px;
             height: 50px;
             font-size: 18px;
@@ -34,18 +34,25 @@
     <h1>Bet14</h1>
 
     <div class="buttons">
-        <button onclick="button1Clicked()">Button 1</button>
-        <button onclick="button2Clicked()">Button 2</button>
     </div>
 
     <script>
-        function button1Clicked() {
-            alert("Button 1 clicked!");
-            // Perform any other actions or redirect as needed
-        }
+        fetch('get_teams.php')
+            .then(response => response.json())
+            .then(data => {
+                const buttonsContainer = document.querySelector('.buttons');
 
-        function button2Clicked() {
-            alert("Button 2 clicked!");
+                data.forEach(team => {
+                    const button = document.createElement('button');
+                    button.textContent = team;
+                    button.addEventListener('click', () => buttonClicked(team));
+                    buttonsContainer.appendChild(button);
+                });
+            })
+            .catch(error => console.log(error));
+
+        function buttonClicked(team) {
+            alert(team + " clicked!");
             // Perform any other actions or redirect as needed
         }
     </script>
